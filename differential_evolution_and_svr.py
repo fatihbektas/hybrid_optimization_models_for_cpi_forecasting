@@ -5,6 +5,25 @@ from sklearn.preprocessing import MinMaxScaler
 from sklearn.svm import SVR
 from sklearn.metrics import mean_squared_error
 import random
+import os
+
+
+# ==========================================
+# 0. TEKRARLANABİLİRLİK (SEED) AYARI
+# ==========================================
+def set_seed(seed=42):
+    """
+    Bu fonksiyon, koddaki tüm rastgele süreçleri dondurur.
+    Böylece kod her çalıştığında %100 aynı sonucu verir.
+    """
+    random.seed(seed)
+    np.random.seed(seed)
+    os.environ["PYTHONHASHSEED"] = str(seed)
+    print(f"--- Random Seed ({seed}) Ayarlandı: Sonuçlar Sabitlendi ---")
+
+
+# Fonksiyonu en başta çağırıyoruz
+set_seed(42)
 
 # ==========================================
 # 1. VERİ YÜKLEME VE ÖN İŞLEME
